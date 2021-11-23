@@ -14,11 +14,10 @@ logo_image = PhotoImage(file='logo.png')
 canvas.create_image(100, 100, image=logo_image)
 canvas.pack()
 
+generate_button = Button(text='generate')
+generate_button.pack()
 
-
-
-
-
-
+add_button = Button(text='add')
+add_button.pack()
 
 window.mainloop()
