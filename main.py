@@ -11,8 +11,8 @@ def save():
     website_text = website_input.get()
     email_text = email_input.get()
     password_text = password_input.get()
-    with open('data.txt', mode='w') as file:
-        file.writelines(f'{website_text} | {email_text} | {password_text}')
+    with open('data.txt', mode='a') as file:
+        file.writelines(f'{website_text} | {email_text} | {password_text}\n')
     website_input.delete(0, END)
     email_input.delete(0, END)
     password_input.delete(0, END)
