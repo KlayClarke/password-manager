@@ -14,7 +14,6 @@ def save():
     with open('data.txt', mode='a') as file:
         file.writelines(f'{website_text} | {email_text} | {password_text}\n')
     website_input.delete(0, END)
-    email_input.delete(0, END)
     password_input.delete(0, END)
     website_input.focus()
 
