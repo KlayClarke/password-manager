@@ -14,6 +14,15 @@ logo_image = PhotoImage(file='logo.png')
 canvas.create_image(100, 100, image=logo_image)
 canvas.pack()
 
+website_input = Entry()
+website_input.pack()
+
+email_username_input = Entry()
+email_username_input.pack()
+
+password_input = Entry()
+password_input.pack()
+
 generate_button = Button(text='generate')
 generate_button.pack()
 
