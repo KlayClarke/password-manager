@@ -7,7 +7,6 @@ from tkinter import *
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title('Password Manager')
-window.minsize(width=300, height=275)
 window.config(padx=20, pady=20)
 
 canvas = Canvas(width=200, height=200)
