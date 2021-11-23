@@ -1,1 +1,2 @@
-testwebsite | testemail | testpassword
+firsttestwebsite | firsttestemail | firsttestpassword
+secondtestwebsite | secondtestemail | secondtestpassword
