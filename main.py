@@ -24,10 +24,7 @@ def generate():
 
     shuffled_list = random.shuffle(random_list)
 
-    password = ""
-
-    for item in random_list:
-        password += item
+    password = "".join(random_list)
 
     password_input.insert(0, password)
 
