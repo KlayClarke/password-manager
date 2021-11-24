@@ -1,11 +1,11 @@
 from tkinter import *
 from tkinter import messagebox
+from password_generator import password
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def generate():
-    pass
-
+    password_input.insert(0, password)
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
