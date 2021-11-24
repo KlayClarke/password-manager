@@ -47,15 +47,8 @@ def save():
         messagebox.showwarning(message='Please do not leave any of the fields empty!')
 
     else:
-        try:
-            with open('data.json', mode='r') as file:
-                data = json.load(file)
-                data.update(new_data)
-            with open('data.json', mode='w') as file:
-                json.dump(data, file, indent=4)
-        except:
-            with open('data.json', mode='w') as file:
-                json.dump(new_data, file, indent=4)
+        with open('data.json', mode='w') as file:
+            json.dump(new_data, file, indent=4)
         website_input.delete(0, END)
         password_input.delete(0, END)
         website_input.focus()
