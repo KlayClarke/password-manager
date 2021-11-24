@@ -1,3 +1,4 @@
+import json
 import random
 import pyperclip
 from tkinter import *
@@ -36,20 +37,21 @@ def save():
     website_text = website_input.get()
     email_text = email_input.get()
     password_text = password_input.get()
+    new_data = {
+        website_text: {
+            'email': email_text,
+            'password': password_text
+        }
+    }
     if website_text == '' or email_text == '' or password_text == '':
         messagebox.showwarning(message='Please do not leave any of the fields empty!')
 
     else:
-        is_ok = messagebox.askokcancel(title=website_text,
-                                       message=f'These are the details entered: \nEmail: {email_text} '
-                                               f'\nPassword: {password_text} \nIs it ok to save?')
-
-        if is_ok:
-            with open('data.txt', mode='a') as file:
-                file.writelines(f'{website_text} | {email_text} | {password_text}\n')
-            website_input.delete(0, END)
-            password_input.delete(0, END)
-            website_input.focus()
+        with open('data.json', mode='w') as file:
+            json.dump(new_data, file)
+        website_input.delete(0, END)
+        password_input.delete(0, END)
+        website_input.focus()
 
 
 # ---------------------------- UI SETUP ------------------------------- #
