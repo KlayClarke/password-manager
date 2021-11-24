@@ -32,6 +32,23 @@ def generate():
     pyperclip.copy(password)
 
 
+# ------------------------SEARCH FOR INFORMATION -----------------------#
+def search():
+    try:
+        with open('data.json', mode='r') as file:
+            data = json.load(file)
+            # for retrieving information
+            website = website_input.get()
+        email = data[website]['email']
+        password = data[website]['password']
+    except KeyError:
+        messagebox.showerror(title='Error', message='No Data File Found')
+    except FileNotFoundError:
+        messagebox.showerror(title='Error', message='No Data File Found')
+    else:
+        messagebox.showinfo(title=f'{website}', message=f'Email: {email}\nPassword: {password}\n')
+
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
     website_text = website_input.get()
@@ -87,9 +104,9 @@ password_label.grid(column=0, row=3)
 
 # Text Boxes
 
-website_input = Entry(width=35)
+website_input = Entry(width=21)
 website_input.focus()
-website_input.grid(column=1, row=1, columnspan=2)
+website_input.grid(column=1, row=1)
 
 email_input = Entry(width=35)
 # email_input.insert() --> insert commonly used email to pre-populate the text field whenever the app is running
@@ -99,6 +116,8 @@ password_input = Entry(width=21)
 password_input.grid(column=1, row=3)
 
 # Buttons
+search_button = Button(text='Search', width=12, command=search)
+search_button.grid(column=2, row=1)
 
 generate_button = Button(text='Generate Password', command=generate)
 generate_button.grid(column=2, row=3)
