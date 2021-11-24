@@ -48,7 +48,7 @@ def save():
 
     else:
         with open('data.json', mode='w') as file:
-            json.dump(new_data, file)
+            json.dump(new_data, file, indent=4)
         website_input.delete(0, END)
         password_input.delete(0, END)
         website_input.focus()
