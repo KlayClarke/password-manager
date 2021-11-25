@@ -38,7 +38,7 @@ def search():
         with open('data.json', mode='r') as file:
             data = json.load(file)
             # for retrieving information
-            website = website_input.get()
+            website = website_input.get().lower()
         email = data[website]['email']
         password = data[website]['password']
     except KeyError:
@@ -51,7 +51,7 @@ def search():
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
-    website_text = website_input.get()
+    website_text = website_input.get().lower()
     email_text = email_input.get()
     password_text = password_input.get()
     new_data = {
