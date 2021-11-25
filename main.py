@@ -45,6 +45,8 @@ def search():
         messagebox.showerror(title='Error', message=f'No Data Exists For {website.title()}')
     except FileNotFoundError:
         messagebox.showerror(title='Error', message='No Data File Found')
+    except:
+        messagebox.showerror(title='Error', message='No Data File Found')
     else:
         messagebox.showinfo(title=f'{website}', message=f'Email: {email}\nPassword: {password}\n')
 
@@ -72,7 +74,7 @@ def save():
             with open('data.json', mode='w') as file:
                 json.dump(new_data, file, indent=4)
         else:
-            if email_text in data:
+            if website_text in data:
                 messagebox.showerror(title='Error', message='Unable To Complete Request\n\n'
                                                             'Data For This Website Has Been Found')
             else:
