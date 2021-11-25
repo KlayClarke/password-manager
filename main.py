@@ -73,8 +73,12 @@ def save():
                 json.dump(new_data, file, indent=4)
         else:
             data.update(new_data)
-            with open('data.json', mode='w') as file:
-                json.dump(data, file, indent=4)
+            if new_data[website_text] == data[website_text]:
+                messagebox.showerror(title='Error', message='Unable To Complete Request\n\n'
+                                                            'Data For This Website Has Been Found')
+            else:
+                with open('data.json', mode='w') as file:
+                    json.dump(data, file, indent=4)
         finally:
             website_input.delete(0, END)
             password_input.delete(0, END)
