@@ -34,15 +34,15 @@ def generate():
 
 # ------------------------SEARCH FOR INFORMATION -----------------------#
 def search():
+    website = website_input.get().lower()
     try:
         with open('data.json', mode='r') as file:
             data = json.load(file)
             # for retrieving information
-            website = website_input.get().lower()
         email = data[website]['email']
         password = data[website]['password']
     except KeyError:
-        messagebox.showerror(title='Error', message='No Data File Found')
+        messagebox.showerror(title='Error', message=f'No Data Exists For {website.title()}')
     except FileNotFoundError:
         messagebox.showerror(title='Error', message='No Data File Found')
     else:
@@ -72,7 +72,7 @@ def save():
             with open('data.json', mode='w') as file:
                 json.dump(new_data, file, indent=4)
         else:
-            if email_text == data[website_text]['email']:
+            if email_text in data:
                 messagebox.showerror(title='Error', message='Unable To Complete Request\n\n'
                                                             'Data For This Website Has Been Found')
             else:
@@ -120,7 +120,7 @@ password_input = Entry(width=21)
 password_input.grid(column=1, row=3)
 
 # Buttons
-search_button = Button(text='Search', width=12, command=search)
+search_button = Button(text='Search', width=13, command=search)
 search_button.grid(column=2, row=1)
 
 generate_button = Button(text='Generate Password', command=generate)
