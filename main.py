@@ -72,11 +72,11 @@ def save():
             with open('data.json', mode='w') as file:
                 json.dump(new_data, file, indent=4)
         else:
-            data.update(new_data)
-            if new_data[website_text] == data[website_text]:
+            if email_text == data[website_text]['email']:
                 messagebox.showerror(title='Error', message='Unable To Complete Request\n\n'
                                                             'Data For This Website Has Been Found')
             else:
+                data.update(new_data)
                 with open('data.json', mode='w') as file:
                     json.dump(data, file, indent=4)
         finally:
